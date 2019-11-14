@@ -5,10 +5,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix, classification_report
-
-
 df=pd.read_csv("E:\data science\heart-disease-uci\heart.csv")
 df.shape
 df.info()
@@ -103,6 +99,7 @@ rtree = RandomForestClassifier(n_estimators=50,min_samples_split=10,min_samples_
                                max_features='sqrt',max_depth=20,bootstrap=True)
 rtree.fit(X_train, y_train)
 rtree_pred = rtree.predict(X_test)
+#from sklearn.metrics import confusion_matrix, classification_report
 #rtree_conf = confusion_matrix(y_test, rtree_pred)
 #rtree_class = classification_report(y_test, rtree_pred)
 rtree_acc_train = rtree.score(X_train, y_train)*100
